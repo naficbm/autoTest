@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.2.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="sxpdfDownload" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+          <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+          <boolProp name="clearEachIteration">false</boolProp>
+          <boolProp name="useExpires">true</boolProp>
+          <boolProp name="CacheManager.controlledByThread">false</boolProp>
+        </CacheManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="cc" elementType="Argument">
+              <stringProp name="Argument.name">cc</stringProp>
+              <stringProp name="Argument.value">http://20271857.178.ctc.data.tv002.com/down/fe4940b5cbb4858b85f6ca1087ccdaf5/%E8%BF%87%E7%A8%8B%E5%86%B3%E5%AE%9A%E6%88%90%E8%B4%A5.pdf?cts=dx-f-D61A129A51A142F9fc03&amp;ctp=61A129A51A142&amp;ctt=1578898824&amp;limit=2&amp;spd=1800000&amp;ctk=fe4940b5cbb4858b85f6ca1087ccdaf5&amp;chk=e838d4bd283a185a36f76a43e71b2375-4848003&amp;mtd=1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="test" elementType="Argument">
+              <stringProp name="Argument.name">test</stringProp>
+              <stringProp name="Argument.value">go</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Site Navigator Tab While Controller" enabled="true">
+          <stringProp name="WhileController.condition"></stringProp>
+        </WhileController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="getAllNavigatorConfig" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">/usr/share/apache-jmeter-5.2.1/bin/sxpdf.csv</stringProp>
+            <boolProp name="ignoreFirstLine">true</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="variableNames">path</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="One Navigator Transaction Controller" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="initVars" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">vars.putObject(&quot;urllist&quot;,[]);
+
+def file;
+
+ if (System.properties[&quot;os.name&quot;].toLowerCase().contains(&quot;windows&quot;)) {
+//	log.info(&quot;window&quot;);
+	file=new File(&quot;d:/&quot;+ vars.get(&quot;path&quot;)+&quot;.txt&quot;);
+ }else{
+// 	log.info(&quot;linux&quot;);
+ 	file=new File(&quot;/usr/share/apache-jmeter-5.2.1/&quot;+ vars.get(&quot;path&quot;)+&quot;.txt&quot;);
+
+ 	new File(&quot;/usr/share/apache-jmeter-5.2.1/pdf/&quot;+vars.get(&quot;path&quot;)).mkdir()
+ }
+
+vars.putObject(&quot;file&quot;,file);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getMaxPageNum" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">https://www.sxpdf.com/${path}</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="extractMaxPageNum" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">def max =0;
+def reg = &quot;https://www.sxpdf.com/&quot;+vars.get(&quot;path&quot;)+&quot;/page/[1-9]*&quot;;
+
+
+def ss=prev.getResponseDataAsString()
+
+def matcher = ss =~ reg;
+while (matcher.find()) {
+	def aa=Integer.parseInt(matcher.group().replace(&quot;https://www.sxpdf.com/&quot;+vars.get(&quot;path&quot;)+&quot;/page/&quot;,&quot;&quot;).trim());
+	if(aa&gt;max){
+	 	max=aa;
+	} 
+}
+log.info(&quot;######################&quot;+max)
+vars.putObject(&quot;pageNum&quot;,max)</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+              <boolProp name="LoopController.continue_forever">true</boolProp>
+              <stringProp name="LoopController.loops">${pageNum}</stringProp>
+            </LoopController>
+            <hashTree>
+              <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+                <stringProp name="CounterConfig.start">1</stringProp>
+                <stringProp name="CounterConfig.end">${pageNum}</stringProp>
+                <stringProp name="CounterConfig.incr">1</stringProp>
+                <stringProp name="CounterConfig.name">page</stringProp>
+                <stringProp name="CounterConfig.format"></stringProp>
+                <boolProp name="CounterConfig.per_user">false</boolProp>
+              </CounterConfig>
+              <hashTree/>
+              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Transaction Controller" enabled="true">
+                <boolProp name="TransactionController.includeTimers">false</boolProp>
+                <boolProp name="TransactionController.parent">true</boolProp>
+              </TransactionController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="One Page Request" enabled="true">
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                    <collectionProp name="Arguments.arguments"/>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.protocol"></stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">https://www.sxpdf.com/${path}/page/${page}</stringProp>
+                  <stringProp name="HTTPSampler.method">GET</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="getListInOnePage" enabled="true">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="script">def reg =&quot;https://www.sxpdf.com/[1-9][0-9]*.html&quot;;
+
+		def list=[];
+        def ss=prev.getResponseDataAsString()
+
+        def matcher= ss=~reg;
+
+        while(matcher.find()){
+
+			list &lt;&lt; matcher.group()
+        }
+
+def index=0;
+        list.unique().each{x -&gt;vars.put(&quot;list_&quot;+index,x); index++}</stringProp>
+                  </JSR223PostProcessor>
+                  <hashTree/>
+                </hashTree>
+                <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="OnePage ForEach" enabled="true">
+                  <stringProp name="ForeachController.inputVal">list</stringProp>
+                  <stringProp name="ForeachController.returnVal">url</stringProp>
+                  <boolProp name="ForeachController.useSeparator">true</boolProp>
+                </ForeachController>
+                <hashTree>
+                  <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Transaction Controller" enabled="true">
+                    <boolProp name="TransactionController.includeTimers">false</boolProp>
+                    <boolProp name="TransactionController.parent">true</boolProp>
+                  </TransactionController>
+                  <hashTree>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="BookDetail" enabled="true">
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                      </elementProp>
+                      <stringProp name="HTTPSampler.domain"></stringProp>
+                      <stringProp name="HTTPSampler.port"></stringProp>
+                      <stringProp name="HTTPSampler.protocol"></stringProp>
+                      <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                      <stringProp name="HTTPSampler.path">${url}</stringProp>
+                      <stringProp name="HTTPSampler.method">GET</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                      <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                      <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                      <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                    </HTTPSamplerProxy>
+                    <hashTree>
+                      <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+                        <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                        <stringProp name="RegexExtractor.refname">download</stringProp>
+                        <stringProp name="RegexExtractor.regex">https://www.sxpdf.com/wp-content/themes/begin/down.php\?id=[1-9][0-9]*</stringProp>
+                        <stringProp name="RegexExtractor.template"></stringProp>
+                        <stringProp name="RegexExtractor.default"></stringProp>
+                        <stringProp name="RegexExtractor.match_number">-1</stringProp>
+                      </RegexExtractor>
+                      <hashTree/>
+                      <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="getDownLoadUrl" enabled="true">
+                        <stringProp name="scriptLanguage">groovy</stringProp>
+                        <stringProp name="parameters"></stringProp>
+                        <stringProp name="filename"></stringProp>
+                        <stringProp name="cacheKey">true</stringProp>
+                        <stringProp name="script">def reg =&quot;https://www.sxpdf.com/wp-content/themes/begin/down.php\\?id=[1-9][0-9]*&quot;;
+
+
+        def ss=prev.getResponseDataAsString()
+
+        def matcher= ss=~reg;
+
+        if(matcher.find()){
+
+//log.info(&quot;##########################&quot;)
+//log.info(matcher.group())
+			vars.put(&quot;downURL&quot;,matcher.group())
+        }
+
+</stringProp>
+                      </JSR223PostProcessor>
+                      <hashTree/>
+                    </hashTree>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="download" enabled="true">
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                      </elementProp>
+                      <stringProp name="HTTPSampler.domain"></stringProp>
+                      <stringProp name="HTTPSampler.port"></stringProp>
+                      <stringProp name="HTTPSampler.protocol"></stringProp>
+                      <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                      <stringProp name="HTTPSampler.path">${downURL}</stringProp>
+                      <stringProp name="HTTPSampler.method">GET</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                      <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                      <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                      <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                    </HTTPSamplerProxy>
+                    <hashTree>
+                      <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="getDownLoadInfo" enabled="true">
+                        <stringProp name="scriptLanguage">groovy</stringProp>
+                        <stringProp name="parameters"></stringProp>
+                        <stringProp name="filename"></stringProp>
+                        <stringProp name="cacheKey">true</stringProp>
+                        <stringProp name="script">def reg =&quot;[1-9][0-9]{5,}-[1-9][0-9]{5,}&quot;;
+
+		def list=[];
+        def ss=prev.getResponseDataAsString()
+
+        def matcher= ss=~reg;
+
+        if(matcher.find()){
+        	def kk=matcher.group()
+  		vars.put(&quot;netDiskUrl&quot;,kk);
+  		vars.put(&quot;uid&quot;,kk.split(&quot;-&quot;)[0])
+  		  		vars.put(&quot;fid&quot;,kk.split(&quot;-&quot;)[1])
+        }
+
+</stringProp>
+                      </JSR223PostProcessor>
+                      <hashTree/>
+                    </hashTree>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="local" enabled="true">
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                          <elementProp name="pop" elementType="HTTPArgument">
+                            <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                            <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            <stringProp name="Argument.name">pop</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </elementProp>
+                      <stringProp name="HTTPSampler.domain"></stringProp>
+                      <stringProp name="HTTPSampler.port"></stringProp>
+                      <stringProp name="HTTPSampler.protocol"></stringProp>
+                      <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                      <stringProp name="HTTPSampler.path">https://webapi.400gb.com/getfile.php?f=${netDiskUrl}</stringProp>
+                      <stringProp name="HTTPSampler.method">GET</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                      <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                      <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                      <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                    </HTTPSamplerProxy>
+                    <hashTree>
+                      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                          <elementProp name="" elementType="Header">
+                            <stringProp name="Header.name">User-Agent</stringProp>
+                            <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36</stringProp>
+                          </elementProp>
+                          <elementProp name="" elementType="Header">
+                            <stringProp name="Header.name">Origin</stringProp>
+                            <stringProp name="Header.value">http://down.sxpdf.com</stringProp>
+                          </elementProp>
+                          <elementProp name="" elementType="Header">
+                            <stringProp name="Header.name">Accept</stringProp>
+                            <stringProp name="Header.value">text/html, */*; q=0.01</stringProp>
+                          </elementProp>
+                          <elementProp name="" elementType="Header">
+                            <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                            <stringProp name="Header.value">cors</stringProp>
+                          </elementProp>
+                        </collectionProp>
+                      </HeaderManager>
+                      <hashTree/>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">filechk</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.file_chk</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                    </hashTree>
+                    <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+                      <stringProp name="ConstantTimer.delay">1000</stringProp>
+                    </ConstantTimer>
+                    <hashTree/>
+                    <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="lasturl" enabled="true">
+                      <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                      </elementProp>
+                      <stringProp name="HTTPSampler.domain"></stringProp>
+                      <stringProp name="HTTPSampler.port"></stringProp>
+                      <stringProp name="HTTPSampler.protocol"></stringProp>
+                      <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                      <stringProp name="HTTPSampler.path">https://webapi.400gb.com/get_file_url.php?uid=${uid}&amp;fid=${fid}&amp;file_chk=${filechk}</stringProp>
+                      <stringProp name="HTTPSampler.method">GET</stringProp>
+                      <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                      <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                      <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                      <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                      <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                      <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                      <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                    </HTTPSamplerProxy>
+                    <hashTree>
+                      <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+                        <stringProp name="JSONPostProcessor.referenceNames">finalUrl</stringProp>
+                        <stringProp name="JSONPostProcessor.jsonPathExprs">$.downurl</stringProp>
+                        <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                      </JSONPostProcessor>
+                      <hashTree/>
+                      <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="getFileName" enabled="true">
+                        <stringProp name="scriptLanguage">groovy</stringProp>
+                        <stringProp name="parameters"></stringProp>
+                        <stringProp name="filename"></stringProp>
+                        <stringProp name="cacheKey">true</stringProp>
+                        <stringProp name="script">def list=vars.getObject(&quot;urllist&quot;)
+
+
+list &lt;&lt; vars.get(&quot;finalUrl&quot;)
+
+//log.info(&quot;finalUrl：&quot;+vars.get(&quot;finalUrl&quot;))
+
+vars.putObject(&quot;urllist&quot;,list)
+
+vars.getObject(&quot;file&quot;).withWriter {w-&gt; list.each {l-&gt; w.append(l+&quot;\r\n&quot;)}}
+
+</stringProp>
+                      </JSR223PostProcessor>
+                      <hashTree/>
+                      <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="checkFileExist" enabled="true">
+                        <stringProp name="scriptLanguage">groovy</stringProp>
+                        <stringProp name="parameters"></stringProp>
+                        <stringProp name="filename"></stringProp>
+                        <stringProp name="cacheKey">true</stringProp>
+                        <stringProp name="script">
+
+
+
+def url= vars.get(&quot;finalUrl&quot;) 
+
+def pathname=vars.get(&quot;path&quot;)
+
+
+def middle =url.indexOf(&quot;down/&quot;);
+
+        url=url.substring(middle+6);
+//        println url;
+
+        def reg = &quot;/.*.pdf&quot;;
+	try{
+
+        def matcher = url =~ reg;
+        if(matcher.find()) {
+			def filename=URLDecoder.decode(matcher.group().replace(&quot;/&quot;,&quot;&quot;),&quot;UTF-8&quot;)
+
+
+			if (System.properties[&quot;os.name&quot;].toLowerCase().contains(&quot;windows&quot;)) {
+//				log.info(&quot;window&quot;);
+//				file=new File(&quot;d:/&quot;+ vars.get(&quot;path&quot;)+&quot;.txt&quot;);
+				def ww=new File(&quot;d://&quot;+filename);
+
+				if(ww.exists()){
+					vars.put(&quot;go&quot;,&quot;no&quot;)	
+					log.info(ww.getName()+&quot; exist@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+
+				}else{
+					vars.put(&quot;go&quot;,&quot;yes&quot;)	
+				}
+
+
+		     }else{
+//			 	log.info(&quot;linux&quot;);
+//			 	file=new File(&quot;/usr/&quot;+ vars.get(&quot;path&quot;)+&quot;.txt&quot;);
+				def rrrr=new File(&quot;/usr/share/apache-jmeter-5.2.1/pdf/&quot;+pathname+&quot;/&quot;+filename)
+				if(rrrr.exists()){
+					vars.put(&quot;go&quot;,&quot;no&quot;)	
+					log.info(rrrr.getName()+&quot; exist@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&quot;)
+				}else{
+					vars.put(&quot;go&quot;,&quot;yes&quot;)	
+				}
+//			    log.info(&quot;file exist@@@@@@@@@@@@@@@@:&quot;+vars.get(&quot;go&quot;))
+ }
+			
+        }
+	}catch(Exception e){
+            e.printStackTrace()
+        }</stringProp>
+                      </JSR223PostProcessor>
+                      <hashTree/>
+                    </hashTree>
+                    <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+                      <stringProp name="IfController.condition">${__groovy(vars.get(&quot;go&quot;) == &quot;yes&quot; )}</stringProp>
+                      <boolProp name="IfController.evaluateAll">false</boolProp>
+                    </IfController>
+                    <hashTree>
+                      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="begindownload" enabled="true">
+                        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                          <collectionProp name="Arguments.arguments"/>
+                        </elementProp>
+                        <stringProp name="HTTPSampler.domain"></stringProp>
+                        <stringProp name="HTTPSampler.port"></stringProp>
+                        <stringProp name="HTTPSampler.protocol"></stringProp>
+                        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                        <stringProp name="HTTPSampler.path">${finalUrl}</stringProp>
+                        <stringProp name="HTTPSampler.method">GET</stringProp>
+                        <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                        <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                        <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                        <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                      </HTTPSamplerProxy>
+                      <hashTree>
+                        <JSR223Listener guiclass="TestBeanGUI" testclass="JSR223Listener" testname="JSR223 Listener" enabled="true">
+                          <stringProp name="cacheKey">true</stringProp>
+                          <stringProp name="filename"></stringProp>
+                          <stringProp name="parameters"></stringProp>
+                          <stringProp name="script">
+
+//new File(&quot;d://file.txt&quot;).setBytes(prev.getResponseData())
+
+log.info(&quot;******************************* begin download&quot;)
+
+
+def url= vars.get(&quot;finalUrl&quot;) 
+
+log.info(url)
+
+def pathname=vars.get(&quot;path&quot;)
+
+
+def middle =url.indexOf(&quot;down/&quot;);
+
+        url=url.substring(middle+6);
+//        println url;
+
+        def reg = &quot;/.*.pdf&quot;;
+	try{
+
+        def matcher = url =~ reg;
+        if(matcher.find()) {
+			def filename=URLDecoder.decode(matcher.group().replace(&quot;/&quot;,&quot;&quot;),&quot;UTF-8&quot;)
+
+
+			if (System.properties[&quot;os.name&quot;].toLowerCase().contains(&quot;windows&quot;)) {
+//				log.info(&quot;window&quot;);
+//				file=new File(&quot;d:/&quot;+ vars.get(&quot;path&quot;)+&quot;.txt&quot;);
+				new File(&quot;d://&quot;+filename).setBytes(prev.getResponseData())
+		     }else{
+//			 	log.info(&quot;linux&quot;);
+//			 	file=new File(&quot;/usr/&quot;+ vars.get(&quot;path&quot;)+&quot;.txt&quot;);
+			new File(&quot;/usr/share/apache-jmeter-5.2.1/pdf/&quot;+pathname+&quot;/&quot;+filename).setBytes(prev.getResponseData())
+ }
+			
+        }
+	}catch(Exception e){
+            e.printStackTrace()
+        }</stringProp>
+                          <stringProp name="scriptLanguage">groovy</stringProp>
+                        </JSR223Listener>
+                        <hashTree/>
+                      </hashTree>
+                    </hashTree>
+                  </hashTree>
+                </hashTree>
+              </hashTree>
+            </hashTree>
+            <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+              <boolProp name="displayJMeterProperties">false</boolProp>
+              <boolProp name="displayJMeterVariables">true</boolProp>
+              <boolProp name="displaySystemProperties">false</boolProp>
+            </DebugSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="false">
+          <stringProp name="IfController.condition">${__groovy(vars.get(&quot;test&quot;) == &quot;god&quot; )}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="downFileTest" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">http://20271857.178.ctc.data.tv002.com/down/fe4940b5cbb4858b85f6ca1087ccdaf5/%E8%BF%87%E7%A8%8B%E5%86%B3%E5%AE%9A%E6%88%90%E8%B4%A5.pdf?cts=dx-f-D61A129A51A142F9fc03&amp;ctp=61A129A51A142&amp;ctt=1578898824&amp;limit=2&amp;spd=1800000&amp;ctk=fe4940b5cbb4858b85f6ca1087ccdaf5&amp;chk=e838d4bd283a185a36f76a43e71b2375-4848003&amp;mtd=1</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223Listener guiclass="TestBeanGUI" testclass="JSR223Listener" testname="JSR223 Listener" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">
+
+//new File(&quot;d://file.txt&quot;).setBytes(prev.getResponseData())
+
+def url= &quot;http://20271857.178.ctc.data.tv002.com/down/fe4940b5cbb4858b85f6ca1087ccdaf5/%E8%BF%87%E7%A8%8B%E5%86%B3%E5%AE%9A%E6%88%90%E8%B4%A5.pdf?cts=dx-f-D61A129A51A142F9fc03&amp;ctp=61A129A51A142&amp;ctt=1578898824&amp;limit=2&amp;spd=1800000&amp;ctk=fe4940b5cbb4858b85f6ca1087ccdaf5&amp;chk=e838d4bd283a185a36f76a43e71b2375-4848003&amp;mtd=1&quot;
+
+//log.info(&quot;####################&quot;+cc)
+def middle =url.indexOf(&quot;down/&quot;);
+
+        url=url.substring(middle+6);
+//        println url;
+
+        def reg = &quot;/.*.pdf&quot;;
+
+
+        def matcher = url =~ reg;
+        if(matcher.find()) {
+			def filename=URLDecoder.decode(matcher.group().replace(&quot;/&quot;,&quot;&quot;),&quot;UTF-8&quot;)
+
+
+			if (System.properties[&quot;os.name&quot;].toLowerCase().contains(&quot;windows&quot;)) {
+				log.info(&quot;window&quot;);
+//				file=new File(&quot;d:/&quot;+ vars.get(&quot;path&quot;)+&quot;.txt&quot;);
+				new File(&quot;d://&quot;+filename).setBytes(prev.getResponseData())
+		     }else{
+			 	log.info(&quot;linux&quot;);
+//			 	file=new File(&quot;/usr/&quot;+ vars.get(&quot;path&quot;)+&quot;.txt&quot;);
+				new File(&quot;/usr/share/apache-jmeter-5.2.1/pdf/&quot;+filename).setBytes(prev.getResponseData())
+ }
+			
+        }</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Listener>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
